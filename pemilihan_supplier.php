@@ -224,6 +224,19 @@ $kategoris = $conn->query("SELECT DISTINCT kategori FROM alternatif ORDER BY kat
                         Tidak ada data supplier yang memenuhi kriteria filter yang dipilih atau skor akhir di atas 30,000.
                     </div>
                 <?php else : ?>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0">Hasil Pencarian</h6>
+                        <div>
+                            <a href="export_supplier_pdf.php?supplier=<?= urlencode($selected_supplier); ?>&kategori=<?= urlencode($selected_kategori); ?>&jenis_barang=<?= urlencode($selected_jenis_barang); ?>" 
+                               class="btn btn-danger btn-sm me-2" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> Export PDF
+                            </a>
+                            <a href="export_supplier_excel.php?supplier=<?= urlencode($selected_supplier); ?>&kategori=<?= urlencode($selected_kategori); ?>&jenis_barang=<?= urlencode($selected_jenis_barang); ?>" 
+                               class="btn btn-success btn-sm">
+                                <i class="bi bi-file-earmark-excel"></i> Export Excel
+                            </a>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead class="table-light">
