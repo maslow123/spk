@@ -174,7 +174,7 @@
     <a href="kriteria.php"><i class="bi bi-funnel"></i> <span>Kriteria</span></a>
     <a href="nilai.php"><i class="bi bi-clipboard-check"></i> <span>Input Nilai</span></a>
     <a href="proses.php"><i class="bi bi-bar-chart-line"></i> <span>Hasil SMART</span></a>
-    <a href="best_supplier.php"><i class="bi bi-bar-chart-line"></i> <span>Pemilihan Supplier Terbaik</span></a>
+    <a href="pemilihan_supplier.php"><i class="bi bi-award"></i> <span>Pemilihan Supplier Terbaik</span></a>
 </div>
 
 

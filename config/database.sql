@@ -5,7 +5,9 @@ USE spk_smart;
 
 CREATE TABLE alternatif (
     id_alternatif INT AUTO_INCREMENT PRIMARY KEY,
-    nama_alternatif VARCHAR(255) NOT NULL
+    nama_alternatif VARCHAR(255) NOT NULL,
+    kategori ENUM('Food', 'Minuman', 'Nonfood', 'Fresh') NOT NULL,
+    jenis_barang VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE kriteria (
@@ -31,3 +33,6 @@ CREATE TABLE IF NOT EXISTS users (
     nama_lengkap VARCHAR(255) DEFAULT NULL,
     role ENUM('admin', 'user') DEFAULT 'user'
 );
+
+ALTER TABLE alternatif ADD COLUMN kategori ENUM('Food', 'Minuman', 'Nonfood', 'Fresh') NOT NULL DEFAULT 'Food';
+ALTER TABLE alternatif ADD COLUMN jenis_barang VARCHAR(255) NOT NULL DEFAULT '';
