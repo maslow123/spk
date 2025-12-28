@@ -1,0 +1,31 @@
+https://dbdiagram.io/d/68b1bdee777b52b76c321948
+
+Table kriteria {
+  id_kriteria int(11) [pk]
+  nama_kriteria varchar(255)
+  bobot decimal(5,2)
+  sifat enum('benefit', 'cost')
+}
+
+Table user {
+  id_user int(11) [pk]
+  username varchar(100)
+  password varchar(100)
+  nama_lengkap varchar(255)
+  role enum('admin', 'user')
+}
+
+Table alternatif {
+  id_alternatif int(11) [pk]
+  nama_alternatif varchar(255)
+}
+
+Table nilai {
+  id_nilai int(11) [pk]
+  id_alternatif int(11)
+  id_kriteria int(11)
+  nilai decimal(5,2)
+}
+
+Ref: nilai.id_alternatif > alternatif.id_alternatif
+Ref: nilai.id_kriteria > kriteria.id_kriteria

@@ -1,0 +1,124 @@
+https://sequencediagram.org/
+register:
+----------------
+Title: Diagram Alur Pendaftaran Akun
+
+Buyer -> Halaman Registrasi: 1. Buka form registrasi
+Buyer -> Halaman Registrasi: 2. Isi Data Form
+Buyer -> Halaman Registrasi: 3. Submit form registrasi
+
+Halaman Registrasi -> Form Registrasi: 4. Validasi input data
+Note right of Halaman Registrasi: "username sudah terdaftar"
+
+...
+Buyer -> Form Registrasi: 6. Ubah username
+Form Registrasi -> Session: 7. Simpan data user baru
+Form Registrasi -> Session: 8. Set pesan sukses "Registrasi berhasil"
+
+Session -> Buyer: 9. Kembali ke login
+
+login:
+----------------
+Title: Diagram Alur Login
+
+Buyer -> Halaman Login: 1. Buka form login
+Buyer -> Halaman Login: 2. Isi Form
+Buyer -> Halaman Login: 3. Submit form login
+
+Halaman Login -> Login Controller: 4. Validasi input login
+Login Controller -> Login Controller: 5. Verifikasi password
+Login Controller -> Session: 6. Simpan data user ke session
+
+Session -> Buyer: 7. Kembali ke dashboard
+
+Login Controller -> Buyer: 8. Tampilkan error "Password salah"
+Halaman Login -> Buyer: 9. Tampilkan error "Username tidak ditemukan"
+
+CRUD alternatif:
+-------------------
+Title: Diagram CRUD Alternatif
+
+Buyer -> Form Alternatif: 1. Tampil form alternatif
+Form Alternatif -> Form Alternatif: 2. Ambil data alternatif tersimpan
+Buyer -> Form Alternatif: 3. Submit form tambah alternatif
+Form Alternatif -> Form Alternatif: 4. Proses tambah alternatif
+
+Form Alternatif -> Buyer: 5. Kembali ke halaman alternatif
+Form Alternatif -> Buyer: 6. Tampilkan pesan eror
+
+Buyer -> Modal Edit: 7. Klik tombol edit alternatif
+Modal Edit -> Modal Edit: 8. Tampilkan form edit
+
+Buyer -> Modal Edit: 9. Submit form update alternatif
+Modal Edit -> Form Alternatif: 10. Proses update alternatif
+Form Alternatif -> Buyer: 11. Kembali ke halaman alternatif
+
+Buyer -> Form Alternatif: 12. Klik hapus alternatif
+Form Alternatif -> Form Alternatif: 13. Proses hapus alternatif
+Form Alternatif -> Buyer: 14. Kembali ke halaman alternatif
+
+CRUD kriteria:
+-------------------
+Title: Diagram CRUD Kriteria
+
+Buyer -> Form Kriteria: 1. Tampil form input kriteria
+Form Kriteria -> Form Kriteria: 2. Ambil data kriteria tersimpan
+Buyer -> Form Kriteria: 3. Submit form tambah kriteria
+Form Kriteria -> Form Kriteria: 4. Proses tambah kriteria
+
+Form Kriteria -> Buyer: 5. Kembali ke halaman kriteria
+Form Kriteria -> Buyer: 6. Tampilkan pesan eror
+
+Buyer -> Modal Edit: 7. Klik tombol edit kriteria
+Modal Edit -> Modal Edit: 8. Tampilkan form edit
+
+Buyer -> Modal Edit: 9. Submit form update kriteria
+Modal Edit -> Form Kriteria: 10. Proses update kriteria
+Form Kriteria -> Buyer: 11. Kembali ke halaman kriteria
+
+Buyer -> Form Kriteria: 12. Klik hapus kriteria
+Form Kriteria -> Form Kriteria: 13. Proses hapus kriteria
+Form Kriteria -> Buyer: 14. Kembali ke halaman kriteria
+
+
+Input nilai alternatif:
+-------------------
+Title: Diagram Input Nilai Alternatif
+
+Buyer -> Form Nilai: 1. Tampil form input nilai
+Form Nilai -> Form Nilai: 2. Ambil data alternatif
+Form Nilai -> Form Nilai: 3. Ambil data kriteria
+Form Nilai -> Form Nilai: 4. Ambil data nilai tersimpan
+
+Buyer -> Form Nilai: 5. Submit form nilai
+Form Nilai -> Database: 6. Update nilai alternatif
+Database -> Database: 7. Simpan nilai baru
+
+Form Nilai -> Buyer: 11. Kembali ke halaman kriteria
+
+
+
+Penaplikasian metode SMART:
+-------------------
+Title: Diagram Proses Perhitungan SMART
+
+Buyer -> Hasil Perhitungan SMART: 1. Buka halaman hasil SMART
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 2. Ambil data alternatif
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 3. Ambil data kriteria
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 4. Ambil data nilai
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 5. Lakukan normalisasi nilai
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 6. Hitung skor akhir
+Hasil Perhitungan SMART -> Hasil Perhitungan SMART: 7. Urutkan peringkat
+
+Hasil Perhitungan SMART -> Buyer: 8. Tampilkan tabel hasil
+Hasil Perhitungan SMART -> Buyer: 9. Tampilkan peringatan
+
+Buyer -> Hasil Perhitungan SMART: 10. Klik export PDF
+Hasil Perhitungan SMART -> Export Service: 11. Buat file pdf
+Export Service -> Buyer: 12. Unduh PDF
+
+Buyer -> Hasil Perhitungan SMART: 13. Klik export excel
+Hasil Perhitungan SMART -> Export Service: 14. Buat file excel
+Export Service -> Buyer: 15. Unduh excel
+
+

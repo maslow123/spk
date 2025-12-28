@@ -1,0 +1,266 @@
+Link:
+https://app.eraser.io/workspace/bvV6YHrf6wqh9oqitSDv
+
+Command (Activity Diagram Registrasi):
+// Activity Diagram: Registrasi
+
+title Activity Diagram Registrasi
+
+Buyer [color: green] {
+  Membuka halaman registrasi [type: activity, icon: log-in]
+  Mengisi formulir registrasi [type: activity, icon: edit]
+  Selesai [type: event, icon: check, label: "Selesai"]
+}
+
+Sistem [color: blue] {
+  Menerima data registrasi [type: activity, icon: database]
+  Validasi data [type: activity, icon: check-circle]
+  Data valid? [type: gateway, icon: check]
+  Registrasi berhasil [type: activity, icon: smile]
+  Tampilkan pesan kesalahan [type: activity, icon: alert-triangle]
+  Username terdaftar? [type: gateway, icon: user]
+  Username sudah terdaftar [type: activity, icon: x-circle]
+}
+
+// Koneksi
+Membuka halaman registrasi > Mengisi formulir registrasi
+Mengisi formulir registrasi --> Menerima data registrasi
+
+Menerima data registrasi > Validasi data
+Validasi data > Data valid?
+
+Data valid? --> Registrasi berhasil : Ya
+Registrasi berhasil --> Selesai
+
+Data valid? --> Tampilkan pesan kesalahan : Tidak
+Tampilkan pesan kesalahan > Username terdaftar?
+
+Username terdaftar? --> Username sudah terdaftar : Ya
+Username sudah terdaftar --> Selesai
+
+Username terdaftar? --> Mengisi formulir registrasi : Tidak
+
+=================================================================================
+
+Command (Activity Diagram Login):
+// Activity Diagram: Login
+
+title Activity Diagram Login
+
+Buyer [color: green] {
+  Mulai [type: event, icon: play]
+  Masukkan Username dan Password [type: activity, icon: edit]
+  Klik tombol Login [type: activity, icon: log-in]
+  Selesai [type: event, icon: check, label: Selesai]
+}
+
+Sistem [color: blue] {
+  Terima data login (Username dan Password) [type: activity, icon: database]
+  Validasi Username dan Password [type: activity, icon: check-circle]
+  Data valid? [type: gateway, icon: check]
+  Masuk ke halaman beranda [type: activity, icon: home]
+  Tampilkan notifikasi Login Berhasil [type: activity, icon: smile]
+  Tampilkan notifikasi Username atau Password Salah [type: activity, icon: alert-triangle]
+}
+
+// Koneksi
+Mulai > Masukkan Username dan Password
+Masukkan Username dan Password > Klik tombol Login
+Klik tombol Login --> Terima data login (Username dan Password)
+
+Terima data login (Username dan Password) > Validasi Username dan Password
+Validasi Username dan Password > Data valid?
+
+Data valid? --> Masuk ke halaman beranda : Ya
+Masuk ke halaman beranda > Tampilkan notifikasi Login Berhasil
+Tampilkan notifikasi Login Berhasil --> Selesai
+
+Data valid? --> Tampilkan notifikasi Username atau Password Salah : Tidak
+Tampilkan notifikasi Username atau Password Salah --> Masukkan Username dan Password
+
+=================================================================================
+// Activity Diagram: CRUD Alternatif 
+
+title Activity Diagram CRUD Alternatif
+
+Buyer [color: green] {
+  Mulai [type: event, icon: play]
+  Pilih menu data supplier [type: activity, icon: menu]
+  Pilih aksi (Tambah / Ubah / Hapus) [type: gateway, icon: list]
+  Tambah data supplier [type: activity, icon: plus-circle]
+  Ubah data supplier [type: activity, icon: edit]
+  Hapus data supplier [type: activity, icon: trash]
+  Melihat data baru [type: activity, icon: eye]
+  Selesai [type: event, icon: check, label: "Selesai"]
+}
+
+Sistem [color: blue] {
+  Tampilkan daftar supplier [type: activity, icon: list]
+  Proses tambah data [type: activity, icon: database]
+  Proses ubah data [type: activity, icon: database]
+  Proses hapus data [type: activity, icon: database]
+  Tampilkan notifikasi [type: activity, icon: bell]
+}
+
+// Koneksi
+Mulai > Pilih menu data supplier
+Pilih menu data supplier > Pilih aksi (Tambah / Ubah / Hapus)
+Pilih aksi (Tambah / Ubah / Hapus) --> Tampilkan daftar supplier
+
+// Tambah
+Pilih aksi (Tambah / Ubah / Hapus) --> Tambah data supplier : Tambah
+Tambah data supplier --> Proses tambah data
+Proses tambah data > Tampilkan notifikasi
+Tampilkan notifikasi --> Melihat data baru
+
+// Ubah
+Pilih aksi (Tambah / Ubah / Hapus) --> Ubah data supplier : Ubah
+Ubah data supplier --> Proses ubah data
+Proses ubah data > Tampilkan notifikasi
+Tampilkan notifikasi --> Melihat data baru
+
+// Hapus
+Pilih aksi (Tambah / Ubah / Hapus) --> Hapus data supplier : Hapus
+Hapus data supplier --> Proses hapus data
+Proses hapus data > Tampilkan notifikasi
+Tampilkan notifikasi --> Melihat data baru
+
+Melihat data baru --> Selesai
+
+=================================================================================
+// Activity Diagram: CRUD Kriteria
+
+title Activity Diagram CRUD Kriteria
+
+Buyer [color: green] {
+  Mulai [type: event, icon: play]
+  Pilih menu data kriteria [type: activity, icon: menu]
+  Pilih aksi (Tambah atau Ubah atau Hapus) [type: gateway, icon: list]
+  Isi data kriteria [type: activity, icon: edit]
+  Pilih data kriteria [type: activity, icon: search]
+  Edit data kriteria [type: activity, icon: edit-3]
+  Klik Simpan (Tambah) [type: activity, icon: save]
+  Klik Simpan (Ubah) [type: activity, icon: save]
+  Klik Hapus [type: activity, icon: trash]
+  Melihat data baru [type: activity, icon: eye]
+  Selesai [type: event, icon: check]
+}
+
+Sistem [color: blue] {
+  Tampilkan daftar kriteria [type: activity, icon: list]
+  Simpan ke database [type: activity, icon: database]
+  Validasi data [type: activity, icon: check-circle]
+  Simpan perubahan [type: activity, icon: database]
+  Hapus dari database [type: activity, icon: x-circle]
+  Tampilkan notifikasi [type: activity, icon: bell]
+  Perbarui daftar kriteria [type: activity, icon: refresh-cw]
+}
+
+// Alur utama
+Mulai > Pilih menu data kriteria
+Pilih menu data kriteria > Pilih aksi (Tambah atau Ubah atau Hapus)
+Pilih aksi (Tambah atau Ubah atau Hapus) --> Tampilkan daftar kriteria
+
+// Tambah
+Pilih aksi (Tambah atau Ubah atau Hapus) --> Isi data kriteria : Tambah
+Isi data kriteria > Klik Simpan (Tambah)
+Klik Simpan (Tambah) --> Simpan ke database
+Simpan ke database > Tampilkan notifikasi
+
+// Ubah
+Pilih aksi (Tambah atau Ubah atau Hapus) --> Pilih data kriteria : Ubah
+Pilih data kriteria > Edit data kriteria
+Edit data kriteria > Klik Simpan (Ubah)
+Klik Simpan (Ubah) --> Validasi data
+Validasi data > Simpan perubahan
+Simpan perubahan > Tampilkan notifikasi
+
+// Hapus
+Pilih aksi (Tambah atau Ubah atau Hapus) --> Pilih data kriteria : Hapus
+Pilih data kriteria > Klik Hapus
+Klik Hapus --> Hapus dari database
+Hapus dari database > Tampilkan notifikasi
+Tampilkan notifikasi > Perbarui daftar kriteria
+Perbarui daftar kriteria --> Melihat data baru
+
+// Titik temu semua alur
+Tampilkan notifikasi --> Melihat data baru
+
+// End
+Melihat data baru --> Selesai
+=================================================================================
+// Activity Diagram: Input Nilai Alternatif
+
+title Activity Diagram Input Nilai Alternatif
+
+Buyer [color: green] {
+  Mulai [type: event, icon: play]
+  Pilih menu input nilai alternatif [type: activity, icon: menu]
+  Memberikan penilaian untuk setiap supplier berdasarkan kriteria [type: activity, icon: edit]
+  Klik Simpan [type: activity, icon: save]
+  Selesai [type: event, icon: check]
+}
+
+Sistem [color: blue] {
+  Menampilkan daftar supplier dan kriteria [type: activity, icon: list]
+  Data penilaian disimpan ke database [type: activity, icon: database]
+  Tampilkan notifikasi Data berhasil disimpan [type: activity, icon: bell]
+}
+
+// Alur utama
+Mulai > Pilih menu input nilai alternatif
+Pilih menu input nilai alternatif --> Menampilkan daftar supplier dan kriteria
+Menampilkan daftar supplier dan kriteria --> Memberikan penilaian untuk setiap supplier berdasarkan kriteria
+Memberikan penilaian untuk setiap supplier berdasarkan kriteria > Klik Simpan
+Klik Simpan --> Data penilaian disimpan ke database
+Data penilaian disimpan ke database > Tampilkan notifikasi Data berhasil disimpan
+Tampilkan notifikasi Data berhasil disimpan --> Selesai
+=================================================================================
+// Activity Diagram: Proses Mengaplikasikan Metode SMART
+
+title Activity Diagram Proses Metode SMART
+
+Buyer [color: green] {
+  Mulai [type: event, icon: play]
+  Pilih menu proses metode SMART [type: activity, icon: menu]
+  Melihat tabel hasil [type: activity, icon: table]
+  Melihat peringkat [type: activity, icon: bar-chart]
+  Klik Export PDF [type: activity, icon: file-text]
+  Klik Export Excel [type: activity, icon: file-spreadsheet]
+  Selesai [type: event, icon: check]
+}
+
+Sistem [color: blue] {
+  Mengambil data alternatif [type: activity, icon: database]
+  Mengambil data kriteria [type: activity, icon: database]
+  Mengambil data nilai [type: activity, icon: database]
+  Validasi data [type: activity, icon: check-circle]
+  Normalisasi nilai [type: activity, icon: sliders]
+  Hitung skor akhir [type: activity, icon: calculator]
+  Urutkan peringkat [type: activity, icon: sort-asc]
+  Tampilkan tabel hasil [type: activity, icon: table]
+  Tampilkan peringkat [type: activity, icon: bar-chart]
+  Unduh file PDF [type: activity, icon: download]
+  Unduh file Excel [type: activity, icon: download]
+}
+
+// Alur utama
+Mulai > Pilih menu proses metode SMART
+Pilih menu proses metode SMART --> Mengambil data alternatif
+Mengambil data alternatif > Mengambil data kriteria
+Mengambil data kriteria > Mengambil data nilai
+Mengambil data nilai > Validasi data
+Validasi data > Normalisasi nilai
+Normalisasi nilai > Hitung skor akhir
+Hitung skor akhir > Urutkan peringkat
+Urutkan peringkat > Tampilkan tabel hasil
+Tampilkan tabel hasil --> Melihat tabel hasil
+Tampilkan peringkat --> Melihat peringkat
+
+// Hasil
+Melihat tabel hasil --> Tampilkan peringkat
+Melihat peringkat --> Klik Export PDF
+Klik Export PDF --> Unduh file PDF
+Klik Export Excel --> Unduh file Excel
+Unduh file PDF --> Selesai
+Unduh file Excel --> Selesai
