@@ -143,7 +143,6 @@ if (isset($_POST['reset'])) {
     $hasil_perhitungan = getSupplierRanking($conn);
 }
 
-// Ambil data untuk dropdown
 $suppliers = $conn->query("SELECT DISTINCT nama_alternatif FROM alternatif ORDER BY nama_alternatif");
 $kategoris = $conn->query("SELECT DISTINCT kategori FROM alternatif ORDER BY kategori");
 
